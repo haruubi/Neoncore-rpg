@@ -1,121 +1,128 @@
 <!DOCTYPE html><html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NeonCore RPG</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: url('file-8E7HjrUsqPNCukqZBS2sMV') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-    }
-    header {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 20px;
-      text-align: center;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      font-size: 18px;
-    }
-    section {
-      padding: 40px;
-      background-color: rgba(0, 0, 0, 0.6);
-    }
-    h1, h2, h3 {
-      color: #f0f0f0;
-    }
-    .personagem {
-      display: flex;
-      align-items: center;
-      margin-bottom: 30px;
-    }
-    .personagem img {
-      width: 120px;
-      height: auto;
-      border-radius: 8px;
-      margin-right: 20px;
-    }
-    footer {
-      background-color: rgba(0, 0, 0, 0.8);
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #aaa;
-    }
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Orbitron', sans-serif;
+    }body {
+  background: url('/mnt/data/file-8GGoidoc76LF1mBCXpF3w4') no-repeat center center fixed;
+  background-size: cover;
+  color: #00ffff;
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header a {
+  text-decoration: none;
+  color: #00ffff;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+header a:hover {
+  color: #ff00ff;
+}
+
+section {
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(5px);
+}
+
+h1, h2, h3 {
+  color: #ff00ff;
+  margin-bottom: 1rem;
+}
+
+img.personagem {
+  width: 100%;
+  max-width: 300px;
+  border: 2px solid #00ffff;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  section {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
   </style>
 </head>
 <body>
   <header>
-    <h1>NeonCore</h1>
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#personagens">Personagens</a>
-      <a href="#contato">Contato</a>
-    </nav>
+    <a href="#inicio">Início</a>
+    <a href="#personagens">Personagens</a>
+    <a href="#contato">Contato</a>
   </header>  <section id="inicio">
-    <h2>Vivencie a experiência definitiva de NeonCore</h2>
-    <p><strong>Introdução:</strong> Em um futuro distópico dominado por corporações e tecnologia, você viverá aventuras em meio a neon, concreto e caos urbano. Explore o mundo de NeonCore, onde tudo tem um preço.</p>
-    <p><strong>Como jogar:</strong> Use dados de 6 lados, escolha suas ações com base nas fichas dos personagens e nas decisões do narrador. Jogue em grupo para desvendar conspirações, sobreviver a combates e conquistar respeito.</p>
-    <p><strong>Inspiração:</strong> Jogos como Cyberpunk 2077, filmes como Blade Runner, Akira e Ghost in the Shell.</p>
-    <p><strong>Sistema de regras:</strong> Os personagens possuem atributos como Força, Reflexo, Técnica e Carisma. Ações são decididas por rolagem de dados mais modificadores.</p>
-    <p><strong>Criação de personagens:</strong> Cada jogador escolhe uma classe, distribui pontos de atributos e habilidades, define equipamentos e traços de personalidade.</p>
-    <p><strong>Equipamentos:</strong> Armas de fogo, implantes cibernéticos, drones, armaduras leves e itens furtivos.</p>
-    <p><strong>Cenário:</strong> Uma mega cidade inspirada em Tóquio futurista, com setores industriais, zonas de luxo e favelas verticais. Corporações controlam a mídia e a política, e gangues dominam as ruas.</p>
+    <h1>Bem-vindo ao NeonCore</h1>
+    <p>Um RPG de mesa ambientado em um mundo cyberpunk sombrio, onde megacorporações dominam, implantes cibernéticos são comuns, e rebeldes lutam para sobreviver.</p>
+    <h2>Como Jogar</h2>
+    <p>Os jogadores criam personagens únicos e enfrentam missões em uma metrópole futurista. Usa-se dados para tomar decisões, interagir com o cenário e evoluir.</p>
+    <h2>Inspirações</h2>
+    <p>Inspirado em Cyberpunk 2077, Blade Runner, Akira e Ghost in the Shell. NeonCore traz uma visão original, brutal e envolvente do futuro.</p>
+    <h2>Sistema de Regras</h2>
+    <p>Baseado em atributos (Força, Agilidade, Técnica, Carisma e Inteligência), com perícias especializadas. Rola-se 1d10 + atributo contra uma dificuldade. Combate é tático e brutal.</p>
+    <h2>Criação de Personagens</h2>
+    <p>Escolha um arquétipo (Hacktivista, Mercenário, Cyborg, Informante, Infiltrador, Nômade) e distribua 20 pontos entre seus atributos. Defina uma motivação e personalize com equipamentos e ciberimplantes.</p>
+    <h2>Equipamento</h2>
+    <p>Armas tecnológicas, drones, armaduras cibernéticas, gadgets e implantes neurais. O arsenal define o estilo e estratégia do personagem.</p>
+    <h2>Cenário</h2>
+    <p>A megacidade NeonCore é dividida em zonas corporativas, guetos rebeldes e subníveis industriais. A corrupção está em todos os níveis, e alianças são frágeis.</p>
   </section>  <section id="personagens">
-    <h2>Personagens</h2>
-    <div class="personagem">
-      <img src="https://i.imgur.com/1X0ZMeM.png" alt="Kaoru" />
-      <div>
-        <h3>Kaoru</h3>
-        <p>Hacktivista especialista em infiltração de redes corporativas e sabotagem de sistemas.</p>
-      </div>
-    </div>
-    <div class="personagem">
-      <img src="https://i.imgur.com/80DsRyX.png" alt="Sage" />
-      <div>
-        <h3>Sage</h3>
-        <p>Médica de campo com implantes cirúrgicos e acesso ao mercado negro cibernético.</p>
-      </div>
-    </div>
-    <div class="personagem">
-      <img src="https://i.imgur.com/LpVaDgP.png" alt="Jinx" />
-      <div>
-        <h3>Jinx</h3>
-        <p>Mercenária com braços robóticos e passado obscuro nas arenas de combate ilegal.</p>
-      </div>
-    </div>
-    <div class="personagem">
-      <img src="https://i.imgur.com/NghqHTa.png" alt="Echo" />
-      <div>
-        <h3>Echo</h3>
-        <p>Especialista em drones e espionagem, ex-funcionário de uma megacorporação.</p>
-      </div>
-    </div>
-    <div class="personagem">
-      <img src="https://i.imgur.com/ncHFvGi.png" alt="Nova" />
-      <div>
-        <h3>Nova</h3>
-        <p>Engenheira rebelde que constrói armas artesanais e manipula tecnologia alienígena.</p>
-      </div>
-    </div>
-    <div class="personagem">
-      <img src="https://i.imgur.com/Mi45PSp.png" alt="Raze" />
-      <div>
-        <h3>Raze</h3>
-        <p>Ex-policial agora caçador de recompensas, mestre em rastreamento urbano e negociação.</p>
-      </div>
-    </div>
+    <h1>Personagens</h1>
+    <div>
+      <h2>Raven</h2>
+      <img class="personagem" src="/mnt/data/file-8E7HjrUsqPNCukqZBS2sMV" alt="Raven">
+      <p>Mercenária solitária com um braço cibernético e passado misterioso. Especialista em combate urbano.</p><h2>Kairos</h2>
+  <img class="personagem" src="/mnt/data/file-8E7HjrUsqPNCukqZBS2sMV" alt="Kairos">
+  <p>Hacker brilhante que vive nas sombras da rede. Mestre em invasão de sistemas e manipulação de IA.</p>
+
+  <h2>Vera Syn</h2>
+  <img class="personagem" src="/mnt/data/file-8E7HjrUsqPNCukqZBS2sMV" alt="Vera Syn">
+  <p>Espiã de elite com implantes de camuflagem ótica. Conhecida por destruir megacorporações por dentro.</p>
+
+  <h2>Drax</h2>
+  <img class="personagem" src="/mnt/data/file-8E7HjrUsqPNCukqZBS2sMV" alt="Drax">
+  <p>Cyborg militar renegado. Sua força descomunal e armadura integrada fazem dele uma máquina de guerra.</p>
+
+  <h2>Nyx</h2>
+  <img class="personagem" src="/mnt/data/file-8E7HjrUsqPNCukqZBS2sMV" alt="Nyx">
+  <p>Artista e rebelde, mistura combate com arte. Seus drones capturam a realidade e a transformam em armas visuais.</p>
+
+  <h2>Sigma</h2>
+  <img class="personagem" src="/mnt/data/file-8E7HjrUsqPNCukqZBS2sMV" alt="Sigma">
+  <p>Ex-cientista corporativo. Usa nanotecnologia e ciência experimental para controlar o campo de batalha.</p>
+</div>
+
   </section>  <section id="contato">
-    <h2>Contato</h2>
-    <p>Quer saber mais ou baixar o PDF completo? Envie um e-mail para <strong>contato@neoncore.com</strong></p>
-  </section>  <footer>
-    <p>&copy; 2025 NeonCore RPG. Todos os direitos reservados.</p>
-  </footer>
+    <h1>Contato</h1>
+    <p>Para saber mais sobre NeonCore ou obter o livro de regras completo, entre em contato: <strong>neoncore@rpgmail.com</strong></p>
+  </section>
 </body>
 </html>
