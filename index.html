@@ -1,205 +1,177 @@
 <!DOCTYPE html><html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NeonCore</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeonCore - RPG Cyberpunk</title>
   <style>
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
-      background: url('https://images.unsplash.com/photo-1585421514287-27f9ae4c41f0?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background: url('fundo-final.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #fff;
-    }header {
-  background-color: rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  text-align: center;
-}
-
-header h1 {
-  color: #00ffff;
-  font-size: 3em;
-  margin: 0;
-  text-shadow: 0 0 10px #00ffff;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 10px;
-}
-
-nav a {
-  color: #ffff00;
-  text-decoration: none;
-  font-size: 1.2em;
-  transition: color 0.3s;
-}
-
-nav a:hover {
-  color: #ffffff;
-}
-
-section {
-  padding: 60px 20px;
-  background-color: rgba(0, 0, 0, 0.7);
-  margin: 20px auto;
-  max-width: 1200px;
-  border-radius: 12px;
-  animation: fadeIn 1s ease;
-}
-
-section h2 {
-  text-align: center;
-  color: #00ffff;
-  margin-bottom: 40px;
-  text-shadow: 0 0 10px #00ffff;
-}
-
-.personagem {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: 40px;
-  gap: 20px;
-  transition: transform 0.3s ease;
-}
-
-.personagem:hover {
-  transform: scale(1.02);
-}
-
-.personagem img {
-  width: 300px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #00ffff;
-}
-
-.personagem .info {
-  flex: 1;
-  color: #ffff00;
-  font-size: 1.1em;
-}
-
-footer {
-  text-align: center;
-  padding: 30px;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: #fff;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+      color: #f1f1f1;
+      animation: fadeIn 1.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    header {
+      background: rgba(0, 0, 0, 0.85);
+      padding: 1rem;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      box-shadow: 0 0 15px #00d9ff;
+    }
+    header a {
+      color: #00d9ff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    header a:hover {
+      color: #ffd700;
+    }
+    section {
+      max-width: 1000px;
+      margin: 7rem auto 2rem;
+      padding: 1.5rem;
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 8px;
+      box-shadow: 0 0 20px #00d9ff66;
+    }
+    h2, h3 {
+      color: #ffd700;
+    }
+    ul, p {
+      color: #ddd;
+    }
+    .personagem {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .personagem img {
+      width: 200px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00d9ff66;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+    #toggle-music {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: #00d9ff;
+      border: none;
+      padding: 10px 15px;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 9999;
+    }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+  <audio id="bg-music" loop autoplay>
+    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/White_Bat_Audio/Nightcrawler/White_Bat_Audio_-_01_-_Nightcrawler.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+  <button id="toggle-music">Desligar Música</button>
   <header>
-    <h1>NeonCore</h1>
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#personagens">Personagens</a>
-      <a href="#contato">Contato</a>
-    </nav>
+    <a href="#inicio">Início</a>
+    <a href="#personagens">Personagens</a>
+    <a href="#contato">Contato</a>
   </header>  <section id="inicio">
-    <h2>Bem-vindo ao NeonCore</h2>
-    <p style="text-align:center; color:#ffffff">Explore um mundo cyberpunk onde cada decisão molda seu destino.</p>
+    <h2>NeonCore – RPG Cyberpunk</h2>
+    <p>Em um futuro distorcido por corporações, implantes cibernéticos e vigilância constante, os jogadores interpretam personagens à margem da sociedade lutando por liberdade, justiça — ou apenas sobrevivência.</p><h3>Sistema de Regras</h3>
+<ul>
+  <li><strong>Dados Usados:</strong> Apenas 1d6</li>
+  <li><strong>Testes de Ação:</strong> 1–2: Fracasso, 3–4: Sucesso Parcial, 5–6: Sucesso Total</li>
+  <li><strong>Atributos:</strong> Corpo (força, combate), Mente (lógica, tecnologia), Presença (carisma, manipulação)</li>
+</ul>
+
+<h3>Criação de Personagens</h3>
+<p>Distribua 6 pontos entre os três atributos. Escolha uma profissão (Ex: Hacker, Mercenário, Androide, Médica de Campo). Descreva brevemente seu passado e motivação.</p>
+
+<h3>Equipamento</h3>
+<ul>
+  <li>Arma Principal (Ex: Pistola, Katana, Rifle)</li>
+  <li>Implante Cibernético (Ex: Visão Noturna, Interface Neural, Braço Robótico)</li>
+  <li>Item Único (Ex: Disco de Dados Roubado, Chip de Identidade Falsa)</li>
+</ul>
+
+<h3>Cenário</h3>
+<p>Neo-Tóquio, 2099. Arranha-céus neon, megacorporações opressoras e guetos tecnológicos. A cidade nunca dorme — mas sempre vigia.</p>
+
+<h3>Inspiração</h3>
+<ul>
+  <li>Blade Runner</li>
+  <li>Cyberpunk 2077</li>
+  <li>Ghost in the Shell</li>
+  <li>Akira</li>
+</ul>
+
+<h3>Como Jogar</h3>
+<p>O Mestre descreve cenas e desafios. Jogadores anunciam ações e rolam o dado. O resultado dita o sucesso, falha ou complicações.</p>
+
   </section>  <section id="personagens">
-    <h2>Personagens</h2><div class="personagem">
-  <img src="https://cdn.midjourney.com/8feae2b1-46c6-4b4c-820b-8a37dfd8db02/0_3.webp" alt="Aiko">
-  <div class="info">
-    <h3>Aiko, a Tecnomaga</h3>
-    <p>Especialista em manipulação digital e invasão de sistemas complexos. Sua mente é uma arma, e sua conexão com a rede é quase espiritual.</p>
-  </div>
-</div>
-
-<div class="personagem">
-  <img src="https://cdn.midjourney.com/31ee7cb9-07f4-4a8d-b6a3-429ba9890a7d/0_3.webp" alt="Blade">
-  <div class="info">
-    <h3>Blade, o Mercenário</h3>
-    <p>Ex-militar com braços cibernéticos reforçados. Usa sua força bruta e experiência tática para missões de infiltração e combate corpo a corpo.</p>
-  </div>
-</div>
-
-<div class="personagem">
-  <img src="https://cdn.midjourney.com/0c03c46e-99f7-438e-a535-58ff6996cc22/0_2.webp" alt="Nyx">
-  <div class="info">
-    <h3>Nyx, a Hacker Fantasma</h3>
-    <p>Desaparece nas sombras da rede. Ninguém a vê chegando. Seus códigos silenciosos derrubam corporações inteiras.</p>
-  </div>
-</div>
-
-<div class="personagem">
-  <img src="https://cdn.midjourney.com/95caa3bb-98d6-44b6-b493-eae6ec799e0a/0_1.webp" alt="Zero">
-  <div class="info">
-    <h3>Zero, o Sniper Cibernético</h3>
-    <p>Olhos modificados com precisão de laser. Um atirador de elite que nunca erra. Lenda viva nas ruas de NeonCore.</p>
-  </div>
-</div>
-
-<div class="personagem">
-  <img src="https://cdn.midjourney.com/44bd635e-c4ee-46f7-996f-5a6dd7b504ae/0_2.webp" alt="Kaori">
-  <div class="info">
-    <h3>Kaori, a Samurai Urbana</h3>
-    <p>Combina a tradição do sabre com a modernidade dos implantes neurais. Rápida, letal e honrada.</p>
-  </div>
-</div>
-
-<div class="personagem">
-  <img src="https://cdn.midjourney.com/6030a4cd-d881-4df2-b310-75d5b98c0624/0_2.webp" alt="Dr. Vex">
-  <div class="info">
-    <h3>Dr. Vex, o Cientista Renegado</h3>
-    <p>Gênio da bioengenharia e experimentos proibidos. Seu corpo é um laboratório ambulante de invenções bizarras e perigosas.</p>
-  </div>
-</div>
-
+    <h2>Personagens</h2>
+    <div class="personagem">
+      <img src="personagem1.jpg" alt="Vortex">
+      <div><strong>Vortex</strong><br/>Mestre da infiltração digital, controla drones e rouba dados secretos das corporações.</div>
+    </div>
+    <div class="personagem">
+      <img src="personagem2.jpg" alt="Sombra">
+      <div><strong>Sombra</strong><br/>Assassina furtiva com implantes óticos e lâminas escondidas. Nunca é vista duas vezes.</div>
+    </div>
+    <div class="personagem">
+      <img src="personagem3.jpg" alt="Raijin">
+      <div><strong>Raijin</strong><br/>Ex-policial com braço biônico e sede de justiça. Anda armado até os dentes.</div>
+    </div>
+    <div class="personagem">
+      <img src="personagem4.jpg" alt="Zero">
+      <div><strong>Zero</strong><br/>Androide rebelde com inteligência artificial experimental. Busca identidade e liberdade.</div>
+    </div>
+    <div class="personagem">
+      <img src="personagem5.jpg" alt="Hexa">
+      <div><strong>Hexa</strong><br/>Biohacker com conexões subterrâneas. Especialista em manipular biotecnologia alheia.</div>
+    </div>
+    <div class="personagem">
+      <img src="personagem6.jpg" alt="Nyx">
+      <div><strong>Nyx</strong><br/>Especialista em demolições e fugas rápidas. Vive para o caos controlado.</div>
+    </div>
   </section>  <section id="contato">
     <h2>Contato</h2>
-    <p style="text-align:center; color:#ffffff">Entre em contato pelo e-mail: <strong>contato@neoncore.com</strong></p>
+    <p>Para dúvidas ou sugestões, envie um e-mail para: <strong>contato@neoncore.com</strong></p>
   </section>  <footer>
-    <p>© 2025 NeonCore. Todos os direitos reservados.</p>
-  </footer>
-  <audio id="bg-music" loop autoplay>
-  <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/White_Bat_Audio/Nightcrawler/White_Bat_Audio_-_01_-_Nightcrawler.mp3" type="audio/mpeg">
-  Seu navegador não suporta áudio.
-</audio>
-
-<button id="toggle-music" style="
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: #00d9ff;
-  border: none;
-  padding: 10px 15px;
-  font-family: 'Orbitron', sans-serif;
-  cursor: pointer;
-  border-radius: 5px;
-  z-index: 9999;
-">
-  Desligar Música
-</button>
-
-<script>
-  const music = document.getElementById("bg-music");
-  const btn = document.getElementById("toggle-music");
-
-  music.volume = 0.2; // Volume inicial
-
-  btn.addEventListener("click", () => {
-    if (music.paused) {
-      music.play();
-      btn.textContent = "Desligar Música";
-    } else {
-      music.pause();
-      btn.textContent = "Ligar Música";
-    }
-  });
-</script>
-</body>
-  
+    &copy; 2025 NeonCore RPG. Todos os direitos reservados.
+  </footer>  <script>
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("toggle-music");
+    music.volume = 0.2;
+    btn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "Desligar Música";
+      } else {
+        music.pause();
+        btn.textContent = "Ligar Música";
+      }
+    });
+  </script></body>
 </html>
