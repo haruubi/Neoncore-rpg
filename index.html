@@ -1,174 +1,670 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NeonCore - RPG Cyberpunk</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: url('fundo-cyberpunk.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #ffe600;
-    }
-    header {
-      background: rgba(0, 0, 0, 0.9);
-      padding: 1rem;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-    }
-    header a {
-      color: #ffe600;
-      text-decoration: none;
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-    section {
-      max-width: 1000px;
-      margin: 6rem auto 2rem;
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.85);
-      border-radius: 8px;
-      box-shadow: 0 0 20px #ffe60033;
-    }
-    h2 {
-      color: #ffe600;
-      border-left: 4px solid #ffe600;
-      padding-left: 0.5rem;
-    }
-    .personagem {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .personagem img {
-      width: 150px;
-      border-radius: 8px;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #888;
-      font-size: 0.9rem;
-    }
-    button {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-      color: #ffe600;
-      border: none;
-      padding: 10px 15px;
-      font-family: 'Orbitron', sans-serif;
-      cursor: pointer;
-      border-radius: 5px;
-      z-index: 9999;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nocturnia - O RPG das Sombras Eternas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap');
+        
+        body {
+            font-family: 'Cinzel', serif;
+            background-color: #0a0a0a;
+            color: #c9c9c9;
+            background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.85);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #8b0000;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .class-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(139, 0, 0, 0.3);
+        }
+        
+        .creature-card {
+            transition: all 0.3s ease;
+        }
+        
+        .creature-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);
+        }
+        
+        .scroll-down {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .section-divider {
+            border-top: 1px solid #8b0000;
+            box-shadow: 0 0 10px #8b0000;
+        }
+        
+        .blood-text {
+            text-shadow: 0 0 5px #8b0000, 0 0 10px #8b0000;
+        }
+    </style>
 </head>
-<body>
-  <audio id="bg-music" loop autoplay>
-    <source src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/White_Bat_Audio/Nightcrawler/White_Bat_Audio_-_01_-_Nightcrawler.mp3" type="audio/mpeg">
-    Seu navegador não suporta áudio.
-  </audio>
-  <button id="toggle-music">Desligar Música</button>
-  <header>
-    <a href="#inicio">Início</a>
-    <a href="#personagens">Personagens</a>
-    <a href="#contato">Contato</a>
-  </header>
-  <section id="inicio">
-    <h2>NeonCore – RPG Cyberpunk</h2>
-    <p>Em um futuro distorcido por corporações, implantes cibernéticos e vigilância constante, os jogadores interpretam personagens à margem da sociedade lutando por liberdade, justiça — ou apenas sobrevivência.</p>
-    <h3>Sistema de Regras</h3>
-    <ul>
-      <li><strong>Dados Usados:</strong> Apenas 1d6</li>
-      <li><strong>Testes de Ação:</strong> 1–2: Fracasso, 3–4: Sucesso Parcial, 5–6: Sucesso Total</li>
-      <li><strong>Atributos:</strong> Corpo (força, combate), Mente (lógica, tecnologia), Presença (carisma, manipulação)</li>
-    </ul>
-    <h3>Criação de Personagens</h3>
-    <p>Distribua 6 pontos entre os atributos. Escolha uma profissão (como hacker, mercenário, espião), uma motivação e um equipamento especial.</p>
-    <h3>Equipamento</h3>
-    <p>Implantes cibernéticos, armas tecnológicas, drones, armaduras furtivas, chips de memória.</p>
-    <h3>Cenário</h3>
-    <p>Megacidades decadentes, zonas de guerra urbana, clubes neon, desertos digitais. O governo caiu, as corporações mandam no mundo.</p>
-    <h3>Inspiração</h3>
-    <p>Jogos como *Cyberpunk 2077*, *Deus Ex* e *Shadowrun*; filmes como *Blade Runner* e *Matrix*.</p>
-    <h3>Como Jogar</h3>
-    <p>O mestre apresenta os desafios, os jogadores descrevem suas ações, e os dados determinam o sucesso. As falhas movem a história tanto quanto os sucessos.</p>
-  </section>
-  <section id="personagens">
-    <h2>Personagens</h2>
-    <div class="personagem">
-      <img src="char1.jpg" alt="Imagem do personagem">
-      <div>
-        <h3>Zero</h3>
-        <p>Um hacker rebelde obcecado por derrubar a megacorp que matou sua família. Mestre da infiltração digital.</p>
-      </div>
-    </div>
-    <div class="personagem">
-      <img src="char2.jpg" alt="Imagem do personagem">
-      <div>
-        <h3>Nyx</h3>
-        <p>Mercenária aumentada com braços cibernéticos. Antiga segurança corporativa, agora fugitiva com sede de vingança.</p>
-      </div>
-    </div>
-    <div class="personagem">
-      <img src="char3.jpg" alt="Imagem do personagem">
-      <div>
-        <h3>Kai</h3>
-        <p>Especialista em drones e espionagem. Luta por justiça num sistema onde tudo tem um preço.</p>
-      </div>
-    </div>
-    <div class="personagem">
-      <img src="char4.jpg" alt="Imagem do personagem">
-      <div>
-        <h3>Riven</h3>
-        <p>Engenheiro cibernético e sabotador. Mestre em criar (e destruir) tecnologia de guerra.</p>
-      </div>
-    </div>
-    <div class="personagem">
-      <img src="char5.jpg" alt="Imagem do personagem">
-      <div>
-        <h3>Echo</h3>
-        <p>Manipulador mental com implantes de hipnose. Anda entre gangues e políticos com facilidade perigosa.</p>
-      </div>
-    </div>
-    <div class="personagem">
-      <img src="char6.jpg" alt="Imagem do personagem">
-      <div>
-        <h3>Vox</h3>
-        <p>Líder carismático de um grupo rebelde. Ex-apresentador de mídia, agora voz da revolução nas ruas digitais.</p>
-      </div>
-    </div>
-  </section>
-  <section id="contato">
-    <h2>Contato</h2>
-    <p>Entre em contato pelo e-mail: contato@neoncore.com</p>
-  </section>
-  <footer>
-    <p>&copy; 2025 NeonCore RPG. Todos os direitos reservados.</p>
-  </footer>
-  <script>
-    const music = document.getElementById("bg-music");
-    const btn = document.getElementById("toggle-music");
-    music.volume = 0.2;
-    btn.addEventListener("click", () => {
-      if (music.paused) {
-        music.play();
-        btn.textContent = "Desligar Música";
-      } else {
-        music.pause();
-        btn.textContent = "Ligar Música";
-      }
-    });
-  </script>
+<body class="overlay">
+    <!-- Navigation -->
+    <nav class="bg-black bg-opacity-90 border-b border-red-900 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-skull text-red-800 text-2xl"></i>
+                    <span class="text-xl font-bold text-white">NOCTURNIA</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#world" class="nav-link text-gray-300 hover:text-white">O Mundo</a>
+                    <a href="#system" class="nav-link text-gray-300 hover:text-white">Sistema</a>
+                    <a href="#classes" class="nav-link text-gray-300 hover:text-white">Classes</a>
+                    <a href="#creatures" class="nav-link text-gray-300 hover:text-white">Criaturas</a>
+                    <a href="#downloads" class="nav-link text-gray-300 hover:text-white">Downloads</a>
+                </div>
+                <button class="md:hidden text-gray-300">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center text-center px-4">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-white blood-text">NOCTURNIA</h1>
+            <p class="text-xl md:text-2xl mb-8 text-gray-300">O sol se foi. As sombras reinam. Sobreviva.</p>
+            <div class="flex justify-center space-x-4">
+                <button class="bg-red-900 hover:bg-red-800 text-white px-6 py-3 rounded-md font-bold transition duration-300 transform hover:scale-105">
+                    Comece sua Jornada
+                </button>
+                <button class="border border-red-900 hover:bg-red-900 hover:bg-opacity-30 text-white px-6 py-3 rounded-md font-bold transition duration-300 transform hover:scale-105">
+                    Saiba Mais
+                </button>
+            </div>
+            <div class="mt-16 scroll-down">
+                <a href="#world" class="text-gray-400 hover:text-white">
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- World Section -->
+    <section id="world" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl font-bold mb-12 text-center text-white blood-text">O Mundo de Nocturnia</h2>
+            
+            <div class="bg-black bg-opacity-70 border border-gray-800 rounded-lg p-8 mb-12">
+                <p class="text-lg mb-6">
+                    Há três séculos, o sol desapareceu sem explicação. O dia eterno se tornou noite perpétua. 
+                    No início, a humanidade resistiu com tochas e lamparinas, mas logo descobriu que a escuridão 
+                    trazia algo mais terrível que a simples falta de luz.
+                </p>
+                <p class="text-lg mb-6">
+                    Das profundezas das sombras emergiram criaturas antigas, seres que existiam antes da luz 
+                    e que agora reivindicavam seu domínio sobre o mundo. Cidades inteiras desapareceram em 
+                    uma única noite, consumidas por algo que ninguém ousava descrever.
+                </p>
+                <p class="text-lg">
+                    Agora, os últimos redutos da humanidade se escondem atrás de muros fortificados, protegidos 
+                    por runas antigas e pela coragem de poucos. Você é um desses poucos - um dos escolhidos que 
+                    se aventuram nas trevas além dos muros, enfrentando os horrores de Nocturnia em busca de 
+                    respostas, sobrevivência ou simples vingança.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg p-6">
+                    <div class="text-red-600 text-3xl mb-4">
+                        <i class="fas fa-moon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Noite Eterna</h3>
+                    <p class="text-gray-300">
+                        O sol nunca mais nasceu. A única luz vem da lua pálida e de fontes artificiais que 
+                        atraem tanto a esperança quanto os predadores das sombras.
+                    </p>
+                </div>
+                <div class="bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg p-6">
+                    <div class="text-red-600 text-3xl mb-4">
+                        <i class="fas fa-skull-crossbones"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Horrores Sem Nome</h3>
+                    <p class="text-gray-300">
+                        Criaturas que desafiam a compreensão humana vagam pelas terras, cada uma com 
+                        habilidades e motivações tão obscuras quanto sua origem.
+                    </p>
+                </div>
+                <div class="bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg p-6">
+                    <div class="text-red-600 text-3xl mb-4">
+                        <i class="fas fa-fort-awesome"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-white">Últimos Bastiões</h3>
+                    <p class="text-gray-300">
+                        As cidades-fortaleza são os únicos lugares relativamente seguros, mas mesmo 
+                        elas não estão livres da corrupção que se infiltra lentamente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider my-12"></div>
+
+    <!-- System Section -->
+    <section id="system" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl font-bold mb-12 text-center text-white blood-text">O Sistema das Sombras</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 text-red-600">Regras Básicas</h3>
+                    <p class="text-lg mb-6">
+                        Nocturnia utiliza um sistema de d20 modificado, com ênfase na narrativa sombria e 
+                        mecânicas que refletem a luta constante contra a escuridão.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-dice-d20 text-red-600 mt-1 mr-3"></i>
+                            <span>Testes de habilidade usam 1d20 + modificadores contra uma CD</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-heart text-red-600 mt-1 mr-3"></i>
+                            <span>Vitalidade representa saúde física e mental</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-moon text-red-600 mt-1 mr-3"></i>
+                            <span>Sistema de corrupção que afeta personagens expostos às trevas</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-fire text-red-600 mt-1 mr-3"></i>
+                            <span>Recursos limitados como tochas e suprimentos são cruciais</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-white">Atributos Principais</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-800 p-4 rounded border border-gray-700">
+                            <h4 class="font-bold text-red-500">Vigor</h4>
+                            <p class="text-sm">Resistência física e saúde</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded border border-gray-700">
+                            <h4 class="font-bold text-red-500">Agilidade</h4>
+                            <p class="text-sm">Reflexos e coordenação</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded border border-gray-700">
+                            <h4 class="font-bold text-red-500">Intelecto</h4>
+                            <p class="text-sm">Conhecimento e raciocínio</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded border border-gray-700">
+                            <h4 class="font-bold text-red-500">Percepção</h4>
+                            <p class="text-sm">Atenção e intuição</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded border border-gray-700">
+                            <h4 class="font-bold text-red-500">Presença</h4>
+                            <p class="text-sm">Carisma e força de vontade</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded border border-gray-700">
+                            <h4 class="font-bold text-red-500">Corrupção</h4>
+                            <p class="text-sm">Resistência às trevas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-black bg-opacity-70 border border-gray-800 rounded-lg p-8">
+                <h3 class="text-2xl font-bold mb-6 text-white">Criação de Personagem</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="border-l-4 border-red-900 pl-4">
+                        <h4 class="font-bold text-lg mb-2 text-white">1. Escolha a Origem</h4>
+                        <p class="text-gray-300">
+                            Determine de qual bastião seu personagem vem, afetando habilidades iniciais e equipamento.
+                        </p>
+                    </div>
+                    <div class="border-l-4 border-red-900 pl-4">
+                        <h4 class="font-bold text-lg mb-2 text-white">2. Distribua Atributos</h4>
+                        <p class="text-gray-300">
+                            Use o sistema de pontos ou rolagem para definir seus atributos principais.
+                        </p>
+                    </div>
+                    <div class="border-l-4 border-red-900 pl-4">
+                        <h4 class="font-bold text-lg mb-2 text-white">3. Selecione a Classe</h4>
+                        <p class="text-gray-300">
+                            Escolha entre as classes disponíveis, cada uma com habilidades únicas contra as trevas.
+                        </p>
+                    </div>
+                    <div class="border-l-4 border-red-900 pl-4">
+                        <h4 class="font-bold text-lg mb-2 text-white">4. Equipamento Inicial</h4>
+                        <p class="text-gray-300">
+                            Receba itens baseados em sua classe e origem, incluindo armas e fontes de luz.
+                        </p>
+                    </div>
+                    <div class="border-l-4 border-red-900 pl-4">
+                        <h4 class="font-bold text-lg mb-2 text-white">5. Defina o Passado</h4>
+                        <p class="text-gray-300">
+                            Crie um motivo para seu personagem sair dos muros protegidos.
+                        </p>
+                    </div>
+                    <div class="border-l-4 border-red-900 pl-4">
+                        <h4 class="font-bold text-lg mb-2 text-white">6. Marca das Trevas</h4>
+                        <p class="text-gray-300">
+                            Todos os personagens começam com um pequeno nível de corrupção - defina como isso se manifesta.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider my-12"></div>
+
+    <!-- Classes Section -->
+    <section id="classes" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl font-bold mb-12 text-center text-white blood-text">Classes Jogáveis</h2>
+            <p class="text-xl text-center mb-16 max-w-3xl mx-auto text-gray-300">
+                Na eterna noite de Nocturnia, apenas os mais resistentes ou desesperados se aventuram além dos muros. 
+                Escolha seu caminho na escuridão.
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Caçador das Sombras -->
+                <div class="class-card bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg overflow-hidden">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-2xl font-bold text-white">Caçador das Sombras</h3>
+                            <span class="bg-red-900 text-xs px-2 py-1 rounded-full">Especialista</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Treinados para rastrear e eliminar ameaças nas trevas, os Caçadores usam técnicas ancestrais 
+                            e armas modificadas para enfrentar o que outros nem ousam procurar.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Percepção</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Furtividade</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Armas de Precisão</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bruxo das Cinzas -->
+                <div class="class-card bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg overflow-hidden">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1547483238-f400e65ccd56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-2xl font-bold text-white">Bruxo das Cinzas</h3>
+                            <span class="bg-red-900 text-xs px-2 py-1 rounded-full">Conjurador</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Aqueles que brincam com fogo acabam queimados - os Bruxos das Cinzas aprenderam essa lição 
+                            e agora usam as chamas purificadoras como arma contra as trevas.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Piromancia</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Alquimia</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Resistência à Corrupção</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cavaleiro Caído -->
+                <div class="class-card bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg overflow-hidden">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-2xl font-bold text-white">Cavaleiro Caído</h3>
+                            <span class="bg-red-900 text-xs px-2 py-1 rounded-full">Tanque</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Antigos protetores de reinos que não existem mais, os Cavaleiros Caídos vestem armaduras 
+                            negras e carregam o peso de juramentos quebrados em suas lâminas amaldiçoadas.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Defesa</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Armas Pesadas</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Aura de Deterioração</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Oráculo da Névoa -->
+                <div class="class-card bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg overflow-hidden">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1547483238-f400e65ccd56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-2xl font-bold text-white">Oráculo da Névoa</h3>
+                            <span class="bg-red-900 text-xs px-2 py-1 rounded-full">Suporte</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Aqueles que veem através da névoa do tempo pagam um preço terrível por seu dom. 
+                            Os Oráculos guiam seus companheiros através de visões fragmentadas de futuros possíveis.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Precognição</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Cura Limitada</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Manipulação de Névoa</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Andarilho Sombrio -->
+                <div class="class-card bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg overflow-hidden">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-2xl font-bold text-white">Andarilho Sombrio</h3>
+                            <span class="bg-red-900 text-xs px-2 py-1 rounded-full">Híbrido</span>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Ninguém sabe de onde vêm ou o que procuram, mas os Andarilhos parecem tão à vontade 
+                            nas trevas quanto os horrores que as habitam. Seriam aliados ou outra ameaça?
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Furtividade</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Manipulação de Sombras</span>
+                            <span class="text-xs bg-gray-800 px-2 py-1 rounded">Adaptação</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mais classes seriam adicionadas aqui -->
+                <div class="class-card bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg overflow-hidden flex items-center justify-center">
+                    <div class="text-center p-6">
+                        <div class="text-5xl mb-4 text-red-900">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">Descubra Mais</h3>
+                        <p class="text-gray-300">
+                            O manual completo contém 12 classes jogáveis, cada uma com três caminhos de especialização.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider my-12"></div>
+
+    <!-- Creatures Section -->
+    <section id="creatures" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl font-bold mb-12 text-center text-white blood-text">Criaturas das Trevas</h2>
+            <p class="text-xl text-center mb-16 max-w-3xl mx-auto text-gray-300">
+                Estas são apenas algumas das ameaças que espreitam na noite eterna de Nocturnia. 
+                Muitas outras aguardam para serem descobertas... ou para descobrirem você.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Devorador de Esperança -->
+                <div class="creature-card bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg overflow-hidden">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Devorador de Esperança</h3>
+                        <span class="inline-block bg-red-900 text-xs px-2 py-1 rounded-full mb-3">Nível 5 | Corrupção</span>
+                        <p class="text-gray-300 mb-4">
+                            Criaturas sem forma física que se alimentam de emoções positivas, deixando apenas 
+                            desespero e apatia em suas vítimas. Invisíveis até atacarem.
+                        </p>
+                        <div class="border-t border-gray-800 pt-4">
+                            <h4 class="font-bold text-red-500 mb-2">Habilidades:</h4>
+                            <ul class="text-sm space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-skull text-red-600 mt-1 mr-2"></i>
+                                    <span>Dreno de Emoções: Reduz atributos mentais do alvo</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-eye-slash text-red-600 mt-1 mr-2"></i>
+                                    <span>Invisibilidade: Só é revelado ao atacar</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-brain text-red-600 mt-1 mr-2"></i>
+                                    <span>Resistência Mental: Imune a efeitos psicológicos</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Guardião do Umbral -->
+                <div class="creature-card bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg overflow-hidden">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1547483238-f400e65ccd56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Guardião do Umbral</h3>
+                        <span class="inline-block bg-red-900 text-xs px-2 py-1 rounded-full mb-3">Nível 8 | Constructo</span>
+                        <p class="text-gray-300 mb-4">
+                            Estatuas vivas que guardam locais antigos e esquecidos. Ninguém sabe quem os criou 
+                            ou que segredos protegem, mas atacam qualquer um que se aproxime.
+                        </p>
+                        <div class="border-t border-gray-800 pt-4">
+                            <h4 class="font-bold text-red-500 mb-2">Habilidades:</h4>
+                            <ul class="text-sm space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-shield-alt text-red-600 mt-1 mr-2"></i>
+                                    <span>Armadura de Pedra: Redução de dano físico</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-fist-raised text-red-600 mt-1 mr-2"></i>
+                                    <span>Golpes Esmagadores: Dano extra contra armaduras</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-expand text-red-600 mt-1 mr-2"></i>
+                                    <span>Barreira Arcaica: Projeta campo de força temporário</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tece-noites -->
+                <div class="creature-card bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg overflow-hidden">
+                    <div class="h-48 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-white mb-2">Tece-noites</h3>
+                        <span class="inline-block bg-red-900 text-xs px-2 py-1 rounded-full mb-3">Nível 12 | Aberração</span>
+                        <p class="text-gray-300 mb-4">
+                            Seres que existem parcialmente em outra dimensão, tecendo realidades alternativas 
+                            em torno de suas vítimas antes de as consumirem. Dizem que são restos de deuses caídos.
+                        </p>
+                        <div class="border-t border-gray-800 pt-4">
+                            <h4 class="font-bold text-red-500 mb-2">Habilidades:</h4>
+                            <ul class="text-sm space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-cloud text-red-600 mt-1 mr-2"></i>
+                                    <span>Névoa Dimensional: Distorce percepção da realidade</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-spider text-red-600 mt-1 mr-2"></i>
+                                    <span>Fios da Existência: Controla vítimas como marionetes</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-history text-red-600 mt-1 mr-2"></i>
+                                    <span>Dilaceração Temporal: Congela alvos no tempo</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <button class="border border-red-900 hover:bg-red-900 hover:bg-opacity-30 text-white px-8 py-3 rounded-md font-bold transition duration-300">
+                    Ver Bestiário Completo (48 Criaturas)
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider my-12"></div>
+
+    <!-- Downloads Section -->
+    <section id="downloads" class="py-20 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl font-bold mb-12 text-center text-white blood-text">Recursos para Download</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg p-8 text-center">
+                    <div class="text-5xl mb-6 text-red-600">
+                        <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Ficha de Personagem</h3>
+                    <p class="text-gray-300 mb-6">
+                        Baixe a ficha oficial de personagem em PDF, pronta para impressão ou preenchimento digital.
+                    </p>
+                    <button class="bg-red-900 hover:bg-red-800 text-white px-6 py-2 rounded-md font-bold transition duration-300 w-full">
+                        Download (PDF)
+                    </button>
+                </div>
+                
+                <div class="bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg p-8 text-center">
+                    <div class="text-5xl mb-6 text-red-600">
+                        <i class="fas fa-book-dead"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Manual Rápido</h3>
+                    <p class="text-gray-300 mb-6">
+                        Um resumo das regras básicas para começar a jogar, incluindo criação de personagem e combate.
+                    </p>
+                    <button class="bg-red-900 hover:bg-red-800 text-white px-6 py-2 rounded-md font-bold transition duration-300 w-full">
+                        Download (PDF)
+                    </button>
+                </div>
+                
+                <div class="bg-gray-900 bg-opacity-80 border border-gray-800 rounded-lg p-8 text-center">
+                    <div class="text-5xl mb-6 text-red-600">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 text-white">Mapa de Nocturnia</h3>
+                    <p class="text-gray-300 mb-6">
+                        Um mapa detalhado do mundo conhecido, com locais importantes e rotas relativamente seguras.
+                    </p>
+                    <button class="bg-red-900 hover:bg-red-800 text-white px-6 py-2 rounded-md font-bold transition duration-300 w-full">
+                        Download (JPG)
+                    </button>
+                </div>
+            </div>
+            
+            <div class="bg-black bg-opacity-70 border border-gray-800 rounded-lg p-8 mt-12">
+                <h3 class="text-2xl font-bold mb-6 text-center text-white">Manual Completo</h3>
+                <p class="text-lg text-center mb-8 max-w-3xl mx-auto text-gray-300">
+                    O manual completo de Nocturnia contém todas as regras, classes, criaturas, equipamentos, 
+                    magias e um bestiário detalhado. Disponível em capa dura ou PDF.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                    <button class="bg-red-900 hover:bg-red-800 text-white px-6 py-3 rounded-md font-bold transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-book mr-3"></i> PDF Completo (R$49,90)
+                    </button>
+                    <button class="border border-red-900 hover:bg-red-900 hover:bg-opacity-30 text-white px-6 py-3 rounded-md font-bold transition duration-300 flex items-center justify-center">
+                        <i class="fas fa-shipping-fast mr-3"></i> Livro Físico (R$129,90)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black bg-opacity-90 border-t border-red-900 py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-skull text-red-800 text-2xl"></i>
+                        <span class="text-xl font-bold text-white">NOCTURNIA</span>
+                    </div>
+                    <p class="text-gray-400">
+                        Um RPG de mesa de fantasia sombria criado por Estúdio Corvo. Todas as artes e direitos reservados.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Explorar</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#world" class="text-gray-400 hover:text-red-600 transition">O Mundo</a></li>
+                        <li><a href="#system" class="text-gray-400 hover:text-red-600 transition">Sistema</a></li>
+                        <li><a href="#classes" class="text-gray-400 hover:text-red-600 transition">Classes</a></li>
+                        <li><a href="#creatures" class="text-gray-400 hover:text-red-600 transition">Criaturas</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Recursos</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#downloads" class="text-gray-400 hover:text-red-600 transition">Downloads</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-600 transition">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-600 transition">Fórum</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-red-600 transition">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-4">Contato</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-red-600 text-xl"><i class="fab fa-discord"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-red-600 text-xl"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-red-600 text-xl"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p class="text-gray-400">
+                        <i class="fas fa-envelope mr-2"></i> contato@nocturnia-rpg.com
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>© 2023 Estúdio Corvo. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Mobile menu toggle would be added here
+    </script>
 </body>
 </html>
