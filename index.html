@@ -3,21 +3,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NeonCore - RPG Cyberpunk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
-      background: url('fundo-final.jpg') no-repeat center center fixed;
+      background: url('fundo-cyberpunk.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #f1f1f1;
-      animation: fadeIn 1.5s ease-in;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+      color: #ffe600;
     }
     header {
-      background: rgba(0, 0, 0, 0.85);
+      background: rgba(0, 0, 0, 0.9);
       padding: 1rem;
       position: fixed;
       width: 100%;
@@ -26,56 +22,48 @@
       display: flex;
       justify-content: center;
       gap: 2rem;
-      box-shadow: 0 0 15px #00d9ff;
     }
     header a {
-      color: #00d9ff;
+      color: #ffe600;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.1rem;
       text-transform: uppercase;
-      transition: color 0.3s;
-    }
-    header a:hover {
-      color: #ffd700;
     }
     section {
       max-width: 1000px;
-      margin: 7rem auto 2rem;
-      padding: 1.5rem;
-      background: rgba(0, 0, 0, 0.75);
+      margin: 6rem auto 2rem;
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.85);
       border-radius: 8px;
-      box-shadow: 0 0 20px #00d9ff66;
+      box-shadow: 0 0 20px #ffe60033;
     }
-    h2, h3 {
-      color: #ffd700;
-    }
-    ul, p {
-      color: #ddd;
+    h2 {
+      color: #ffe600;
+      border-left: 4px solid #ffe600;
+      padding-left: 0.5rem;
     }
     .personagem {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       gap: 1rem;
       margin-bottom: 2rem;
     }
     .personagem img {
-      width: 200px;
+      width: 150px;
       border-radius: 8px;
-      box-shadow: 0 0 10px #00d9ff66;
     }
     footer {
       text-align: center;
       padding: 2rem;
-      font-size: 0.9rem;
       color: #888;
+      font-size: 0.9rem;
     }
-    #toggle-music {
+    button {
       position: fixed;
       bottom: 20px;
       left: 20px;
       background-color: rgba(0, 0, 0, 0.7);
-      color: #00d9ff;
+      color: #ffe600;
       border: none;
       padding: 10px 15px;
       font-family: 'Orbitron', sans-serif;
@@ -84,7 +72,6 @@
       z-index: 9999;
     }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
   <audio id="bg-music" loop autoplay>
@@ -96,71 +83,80 @@
     <a href="#inicio">Início</a>
     <a href="#personagens">Personagens</a>
     <a href="#contato">Contato</a>
-  </header>  <section id="inicio">
+  </header>
+  <section id="inicio">
     <h2>NeonCore – RPG Cyberpunk</h2>
-    <p>Em um futuro distorcido por corporações, implantes cibernéticos e vigilância constante, os jogadores interpretam personagens à margem da sociedade lutando por liberdade, justiça — ou apenas sobrevivência.</p><h3>Sistema de Regras</h3>
-<ul>
-  <li><strong>Dados Usados:</strong> Apenas 1d6</li>
-  <li><strong>Testes de Ação:</strong> 1–2: Fracasso, 3–4: Sucesso Parcial, 5–6: Sucesso Total</li>
-  <li><strong>Atributos:</strong> Corpo (força, combate), Mente (lógica, tecnologia), Presença (carisma, manipulação)</li>
-</ul>
-
-<h3>Criação de Personagens</h3>
-<p>Distribua 6 pontos entre os três atributos. Escolha uma profissão (Ex: Hacker, Mercenário, Androide, Médica de Campo). Descreva brevemente seu passado e motivação.</p>
-
-<h3>Equipamento</h3>
-<ul>
-  <li>Arma Principal (Ex: Pistola, Katana, Rifle)</li>
-  <li>Implante Cibernético (Ex: Visão Noturna, Interface Neural, Braço Robótico)</li>
-  <li>Item Único (Ex: Disco de Dados Roubado, Chip de Identidade Falsa)</li>
-</ul>
-
-<h3>Cenário</h3>
-<p>Neo-Tóquio, 2099. Arranha-céus neon, megacorporações opressoras e guetos tecnológicos. A cidade nunca dorme — mas sempre vigia.</p>
-
-<h3>Inspiração</h3>
-<ul>
-  <li>Blade Runner</li>
-  <li>Cyberpunk 2077</li>
-  <li>Ghost in the Shell</li>
-  <li>Akira</li>
-</ul>
-
-<h3>Como Jogar</h3>
-<p>O Mestre descreve cenas e desafios. Jogadores anunciam ações e rolam o dado. O resultado dita o sucesso, falha ou complicações.</p>
-
-  </section>  <section id="personagens">
+    <p>Em um futuro distorcido por corporações, implantes cibernéticos e vigilância constante, os jogadores interpretam personagens à margem da sociedade lutando por liberdade, justiça — ou apenas sobrevivência.</p>
+    <h3>Sistema de Regras</h3>
+    <ul>
+      <li><strong>Dados Usados:</strong> Apenas 1d6</li>
+      <li><strong>Testes de Ação:</strong> 1–2: Fracasso, 3–4: Sucesso Parcial, 5–6: Sucesso Total</li>
+      <li><strong>Atributos:</strong> Corpo (força, combate), Mente (lógica, tecnologia), Presença (carisma, manipulação)</li>
+    </ul>
+    <h3>Criação de Personagens</h3>
+    <p>Distribua 6 pontos entre os atributos. Escolha uma profissão (como hacker, mercenário, espião), uma motivação e um equipamento especial.</p>
+    <h3>Equipamento</h3>
+    <p>Implantes cibernéticos, armas tecnológicas, drones, armaduras furtivas, chips de memória.</p>
+    <h3>Cenário</h3>
+    <p>Megacidades decadentes, zonas de guerra urbana, clubes neon, desertos digitais. O governo caiu, as corporações mandam no mundo.</p>
+    <h3>Inspiração</h3>
+    <p>Jogos como *Cyberpunk 2077*, *Deus Ex* e *Shadowrun*; filmes como *Blade Runner* e *Matrix*.</p>
+    <h3>Como Jogar</h3>
+    <p>O mestre apresenta os desafios, os jogadores descrevem suas ações, e os dados determinam o sucesso. As falhas movem a história tanto quanto os sucessos.</p>
+  </section>
+  <section id="personagens">
     <h2>Personagens</h2>
     <div class="personagem">
-      <img src="personagem1.jpg" alt="Vortex">
-      <div><strong>Vortex</strong><br/>Mestre da infiltração digital, controla drones e rouba dados secretos das corporações.</div>
+      <img src="char1.jpg" alt="Imagem do personagem">
+      <div>
+        <h3>Zero</h3>
+        <p>Um hacker rebelde obcecado por derrubar a megacorp que matou sua família. Mestre da infiltração digital.</p>
+      </div>
     </div>
     <div class="personagem">
-      <img src="personagem2.jpg" alt="Sombra">
-      <div><strong>Sombra</strong><br/>Assassina furtiva com implantes óticos e lâminas escondidas. Nunca é vista duas vezes.</div>
+      <img src="char2.jpg" alt="Imagem do personagem">
+      <div>
+        <h3>Nyx</h3>
+        <p>Mercenária aumentada com braços cibernéticos. Antiga segurança corporativa, agora fugitiva com sede de vingança.</p>
+      </div>
     </div>
     <div class="personagem">
-      <img src="personagem3.jpg" alt="Raijin">
-      <div><strong>Raijin</strong><br/>Ex-policial com braço biônico e sede de justiça. Anda armado até os dentes.</div>
+      <img src="char3.jpg" alt="Imagem do personagem">
+      <div>
+        <h3>Kai</h3>
+        <p>Especialista em drones e espionagem. Luta por justiça num sistema onde tudo tem um preço.</p>
+      </div>
     </div>
     <div class="personagem">
-      <img src="personagem4.jpg" alt="Zero">
-      <div><strong>Zero</strong><br/>Androide rebelde com inteligência artificial experimental. Busca identidade e liberdade.</div>
+      <img src="char4.jpg" alt="Imagem do personagem">
+      <div>
+        <h3>Riven</h3>
+        <p>Engenheiro cibernético e sabotador. Mestre em criar (e destruir) tecnologia de guerra.</p>
+      </div>
     </div>
     <div class="personagem">
-      <img src="personagem5.jpg" alt="Hexa">
-      <div><strong>Hexa</strong><br/>Biohacker com conexões subterrâneas. Especialista em manipular biotecnologia alheia.</div>
+      <img src="char5.jpg" alt="Imagem do personagem">
+      <div>
+        <h3>Echo</h3>
+        <p>Manipulador mental com implantes de hipnose. Anda entre gangues e políticos com facilidade perigosa.</p>
+      </div>
     </div>
     <div class="personagem">
-      <img src="personagem6.jpg" alt="Nyx">
-      <div><strong>Nyx</strong><br/>Especialista em demolições e fugas rápidas. Vive para o caos controlado.</div>
+      <img src="char6.jpg" alt="Imagem do personagem">
+      <div>
+        <h3>Vox</h3>
+        <p>Líder carismático de um grupo rebelde. Ex-apresentador de mídia, agora voz da revolução nas ruas digitais.</p>
+      </div>
     </div>
-  </section>  <section id="contato">
+  </section>
+  <section id="contato">
     <h2>Contato</h2>
-    <p>Para dúvidas ou sugestões, envie um e-mail para: <strong>contato@neoncore.com</strong></p>
-  </section>  <footer>
-    &copy; 2025 NeonCore RPG. Todos os direitos reservados.
-  </footer>  <script>
+    <p>Entre em contato pelo e-mail: contato@neoncore.com</p>
+  </section>
+  <footer>
+    <p>&copy; 2025 NeonCore RPG. Todos os direitos reservados.</p>
+  </footer>
+  <script>
     const music = document.getElementById("bg-music");
     const btn = document.getElementById("toggle-music");
     music.volume = 0.2;
@@ -173,5 +169,6 @@
         btn.textContent = "Ligar Música";
       }
     });
-  </script></body>
+  </script>
+</body>
 </html>
