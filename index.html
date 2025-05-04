@@ -1,106 +1,157 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!DOCTYPE html><html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NeonCore RPG</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: url('https://wallpapercave.com/wp/wp6927507.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #fff;
-    }
+      color: #f0f0f0;
+    }header {
+  background-color: rgba(0, 0, 0, 0.85);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #00ffe1;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-    header {
-      background-color: rgba(0, 0, 0, 0.85);
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px solid #00ffe1;
-    }
+header h1 {
+  color: #00ffe1;
+  font-size: 2rem;
+  margin: 0;
+}
 
-    header h1 {
-      color: #00ffe1;
-      font-size: 2rem;
-      margin: 0;
-    }
+nav {
+  display: flex;
+  gap: 1rem;
+}
 
-    nav a {
-      color: #ff00ff;
-      margin: 0 1rem;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
+nav a {
+  color: #ff00ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
 
-    nav a:hover {
-      color: #00ffe1;
-    }
+nav a:hover {
+  color: #00ffe1;
+}
 
-    section {
-      background-color: rgba(0, 0, 0, 0.75);
-      margin: 2rem;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #00ffe1;
-    }
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  color: #ff00ff;
+  cursor: pointer;
+}
 
-    h2 {
-      border-left: 4px solid #00ffe1;
-      padding-left: 0.5rem;
-      color: #00ffe1;
-    }
+section {
+  background-color: rgba(0, 0, 0, 0.75);
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #00ffe1;
+  max-width: 900px;
+  animation: fadeIn 1s ease-in;
+}
 
-    .botao {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      margin-top: 1rem;
-      background-color: #ff00ff;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+h2 {
+  border-left: 4px solid #00ffe1;
+  padding-left: 0.5rem;
+  color: #00ffe1;
+}
 
-    .botao:hover {
-      background-color: #00ffe1;
-      color: #000;
-    }
+ul {
+  padding-left: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    padding: 1rem;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
   </style>
 </head>
 <body>
   <header>
     <h1>NeonCore RPG</h1>
-    <nav>
-      <a href="#inicio">Início</a>
-      <a href="#personagens">Personagens</a>
-      <a href="#contato">Contato</a>
+    <i class="fas fa-bars menu-toggle" onclick="toggleMenu()"></i>
+    <nav id="menu">
+      <a href="#inicio"><i class="fas fa-home"></i> Início</a>
+      <a href="#personagens"><i class="fas fa-users"></i> Personagens</a>
+      <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
     </nav>
-  </header>
-
-  <section id="inicio">
-    <h2>Bem-vindo ao NeonCore RPG</h2>
-    <p>Vivencie um futuro distópico em Neo-Tóquio, onde você enfrentará corporações, hackers e implantes cibernéticos.</p>
-    <a class="botao" href="#personagens">Escolha seu personagem</a>
-  </section>
-
-  <section id="personagens">
+  </header>  <section id="inicio">
+    <h2>1. Introdução</h2>
+    <p>Em um futuro distorcido por corporações, implantes cibernéticos e vigilância constante...</p>
+    <h2>2. Sistema de Regras (Leve)</h2>
+    <ul>
+      <li><strong>Dados Usados:</strong> Apenas 1d6</li>
+      <li><strong>Testes de Ação:</strong> 1–2: Fracasso, 3–4: Sucesso Parcial, 5–6: Sucesso Total</li>
+      <li><strong>Atributos:</strong>
+        <ul>
+          <li>Corpo – força, resistência, combate</li>
+          <li>Mente – lógica, tecnologia, conhecimento</li>
+          <li>Presença – carisma, persuasão, influência</li>
+        </ul>
+      </li>
+    </ul>
+    <h2>3. Criação de Personagem</h2>
+    <ul>
+      <li>Mercenário</li>
+      <li>Hacker</li>
+      <li>Tecnomante</li>
+      <li>Espião</li>
+    </ul>
+    <h2>4. Equipamentos e Cibernéticos</h2>
+    <p>1 implante cibernético + arma + comunicador</p>
+    <h2>5. Cenário: Neo-Tóquio, 2187</h2>
+    <p>Mega arranha-céus, luzes de néon, zonas de exclusão, corporações...</p>
+    <h2>6. Inspirações</h2>
+    <p>Edgerunners, Blade Runner, Ghost in the Shell, Akira</p>
+    <h2>7. Como Jogar</h2>
+    <p>Narrador + jogadores + dados = missões</p>
+  </section>  <section id="personagens">
     <h2>Personagens</h2>
     <ul>
-      <li><strong>Nyx:</strong> Especialista em espionagem com próteses ópticas que enxergam o invisível.</li>
-      <li><strong>Vektor:</strong> Hacker capaz de invadir qualquer sistema com um gesto.</li>
-      <li><strong>Ravena:</strong> Tecnomante com habilidades de controlar máquinas com a mente.</li>
+      <li><strong>Nyx:</strong> Espiã cibernética com visão noturna</li>
+      <li><strong>Vektor:</strong> Hacker das redes corporativas</li>
+      <li><strong>Ravena:</strong> Tecnomante que manipula robôs</li>
     </ul>
-  </section>
-
-  <section id="contato">
+  </section>  <section id="contato">
     <h2>Contato</h2>
-    <p>Para dúvidas ou sugestões, envie um e-mail para <strong>contato@neoncore.com</strong></p>
-  </section>
-</body>
+    <p>Fale com a gente: <strong>contato@neoncore.com</strong></p>
+  </section>  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('menu');
+      nav.classList.toggle('open');
+    }
+  </script></body>
 </html>
