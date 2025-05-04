@@ -3,149 +3,240 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Neoncore RPG</title>
+  <title>NeonCore - RPG Cyberpunk</title>
   <style>
     body {
-      background-color: #0a0a0a;
-      color: #ffffff;
-      font-family: 'Orbitron', sans-serif;
-      padding-top: 60px;
       margin: 0;
-    }
-
-    .navbar {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0f0f0f;
-      border-bottom: 1px solid #00ffff;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      z-index: 1000;
+      color: #f0f0f0;
+      line-height: 1.6;
+      padding: 0;
     }
-
-    .menu {
+    nav {
+      background-color: #000;
+      padding: 1rem;
       display: flex;
       justify-content: center;
-      list-style: none;
-      padding: 10px 0;
-      margin: 0;
+      gap: 2rem;
+      border-bottom: 2px solid #00ffe1;
     }
-
-    .menu li {
-      margin: 0 20px;
-    }
-
-    .menu a {
-      color: #00ffff;
+    nav a {
+      color: #00ffe1;
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
     }
-
-    .menu a:hover {
+    nav a:hover {
       color: #ff00ff;
     }
-
-    section {
-      padding: 40px 20px;
+    .container {
+      padding: 2rem;
       max-width: 900px;
       margin: auto;
     }
-
-    h1, h2 {
-      color: #00ffff;
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
     }
-
-    .personagem {
-      border: 1px solid #444;
-      padding: 10px;
-      margin-bottom: 20px;
-      background-color: #111;
-      border-radius: 10px;
+    header h1 {
+      font-size: 3rem;
+      color: #00ffe1;
+      margin: 0;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    h2 {
+      color: #00ffe1;
+      border-left: 4px solid #00ffe1;
+      padding-left: 0.5rem;
+    }
+    .tabs {
       display: flex;
-      align-items: center;
-      gap: 20px;
+      gap: 1rem;
+      margin-bottom: 1rem;
     }
-
-    .personagem img {
-      width: 120px;
-      height: auto;
-      border-radius: 10px;
+    .tabs button {
+      background-color: #1a1a1a;
+      border: none;
+      padding: 0.5rem 1rem;
+      color: #f0f0f0;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .tabs button.active {
+      background-color: #00ffe1;
+      color: #000;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .character-card {
+      display: flex;
+      gap: 1rem;
+      background-color: #1a1a1a;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      align-items: center;
+    }
+    .character-card img {
+      width: 60px;
+      height: 60px;
+      border-radius: 6px;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <nav class="navbar">
-      <ul class="menu">
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#personagens">Personagens</a></li>
-        <li><a href="#contato">Contato</a></li>
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#personagens">Personagens</a>
+    <a href="#contato">Contato</a>
+  </nav>
+
+  <div class="container">
+    <header id="inicio">
+      <h1>NeonCore – RPG Cyberpunk</h1>
+      <p>Ambientado em 2187 – Neo-Tóquio</p>
+    </header>
+
+    <section>
+      <h2>1. Introdução</h2>
+      <p>Em um futuro distorcido por corporações, implantes cibernéticos e vigilância constante, os jogadores interpretam personagens à margem da sociedade lutando por liberdade, justiça — ou apenas sobrevivência.</p>
+    </section>
+
+    <section>
+      <h2>2. Sistema de Regras (Leve)</h2>
+      <ul>
+        <li><strong>Dados Usados:</strong> Apenas 1d6</li>
+        <li><strong>Testes de Ação:</strong> 1–2: Fracasso, 3–4: Sucesso Parcial, 5–6: Sucesso Total</li>
+        <li><strong>Atributos:</strong>
+          <ul>
+            <li>Corpo – força, resistência, combate</li>
+            <li>Mente – lógica, tecnologia, conhecimento</li>
+            <li>Presença – carisma, persuasão, influência</li>
+          </ul>
+        </li>
       </ul>
-    </nav>
-  </header>
+    </section>
 
-  <section id="inicio">
-    <h1>Bem-vindo ao Neoncore RPG</h1>
-    <p>Escolha seus personagens e prepare-se para a missão.</p>
-  </section>
+    <section>
+      <h2>3. Criação de Personagem</h2>
+      <p>Escolha nome, profissão, aparência, motivação e um arquétipo:</p>
+      <ul>
+        <li>Mercenário</li>
+        <li>Hacker</li>
+        <li>Tecnomante</li>
+        <li>Espião</li>
+      </ul>
+    </section>
 
-  <section id="personagens">
-    <h2>Personagens</h2>
+    <section>
+      <h2>4. Equipamentos e Cibernéticos</h2>
+      <p>Cada personagem começa com 1 implante cibernético, além de itens como arma e comunicador.</p>
+    </section>
 
-    <div class="personagem">
-      <img src="https://via.placeholder.com/120x180?text=Personagem+1" alt="Personagem 1">
-      <div>
-        <h3>Nyx</h3>
-        <p>Especialista em infiltração e espionagem. Suas próteses ópticas enxergam o invisível.</p>
+    <section>
+      <h2>5. Cenário: Neo-Tóquio, 2187</h2>
+      <p>Mega arranha-céus, luzes de néon, zonas de exclusão, e corporações como ZENNET e Takashi BioTek controlam o mundo.</p>
+    </section>
+
+    <section>
+      <h2>6. Inspirações</h2>
+      <p>Cyberpunk: Edgerunners, Blade Runner, Ghost in the Shell, Akira.</p>
+    </section>
+
+    <section>
+      <h2>7. Como Jogar</h2>
+      <p>Um jogador assume o papel de Narrador. Os outros interpretam personagens em missões, rolando dados sempre que houver risco ou incerteza.</p>
+    </section>
+
+    <section id="personagens">
+      <h2>8. Personagens Jogáveis</h2>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="showTab(0)">Nyx</button>
+        <button class="tab-btn" onclick="showTab(1)">Vektor</button>
+        <button class="tab-btn" onclick="showTab(2)">Ravena</button>
+        <button class="tab-btn" onclick="showTab(3)">Zero</button>
+        <button class="tab-btn" onclick="showTab(4)">Sombra</button>
+        <button class="tab-btn" onclick="showTab(5)">Neon</button>
       </div>
-    </div>
 
-    <div class="personagem">
-      <img src="https://via.placeholder.com/120x180?text=Personagem+2" alt="Personagem 2">
-      <div>
-        <h3>Vektor</h3>
-        <p>Hacker prodígio, capaz de invadir qualquer rede com apenas um gesto.</p>
+      <div class="tab-content active">
+        <div class="character-card">
+          <img src="https://via.placeholder.com/60" alt="Nyx">
+          <div>
+            <strong>Nyx</strong>
+            <p>Especialista em infiltração e espionagem. Suas próteses ópticas enxergam o invisível.</p>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="personagem">
-      <img src="https://via.placeholder.com/120x180?text=Personagem+3" alt="Personagem 3">
-      <div>
-        <h3>Ravena</h3>
-        <p>Ex-militar com implantes de combate. Perita em armamento pesado.</p>
+      <div class="tab-content">
+        <div class="character-card">
+          <img src="https://via.placeholder.com/60" alt="Vektor">
+          <div>
+            <strong>Vektor</strong>
+            <p>Hacker prodígio, capaz de invadir qualquer rede com apenas um gesto.</p>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="personagem">
-      <img src="https://via.placeholder.com/120x180?text=Personagem+4" alt="Personagem 4">
-      <div>
-        <h3>Dra. Iris</h3>
-        <p>Cientista rebelde. Manipula nanotecnologia para curar ou destruir.</p>
+      <div class="tab-content">
+        <div class="character-card">
+          <img src="https://via.placeholder.com/60" alt="Ravena">
+          <div>
+            <strong>Ravena</strong>
+            <p>Especialista em drones e vigilância aérea, com uma rede de espionagem pessoal.</p>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="personagem">
-      <img src="https://via.placeholder.com/120x180?text=Personagem+5" alt="Personagem 5">
-      <div>
-        <h3>Torque</h3>
-        <p>Mecânico cyborg. Constrói e pilota exoesqueletos de batalha.</p>
+      <div class="tab-content">
+        <div class="character-card">
+          <img src="https://via.placeholder.com/60" alt="Zero">
+          <div>
+            <strong>Zero</strong>
+            <p>Ex-samurai corporativo, mestre com lâminas de energia e implantes de combate.</p>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="personagem">
-      <img src="https://via.placeholder.com/120x180?text=Personagem+6" alt="Personagem 6">
-      <div>
-        <h3>Echo</h3>
-        <p>Mensageira das sombras. Usa drones e sons para confundir seus alvos.</p>
+      <div class="tab-content">
+        <div class="character-card">
+          <img src="https://via.placeholder.com/60" alt="Sombra">
+          <div>
+            <strong>Sombra</strong>
+            <p>Assassina biohackeada com invisibilidade térmica e sentidos aguçados.</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+      <div class="tab-content">
+        <div class="character-card">
+          <img src="https://via.placeholder.com/60" alt="Neon">
+          <div>
+            <strong>Neon</strong>
+            <p>Artista de rua com habilidades de controle de luz e hologramas para enganar inimigos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section id="contato">
-    <h2>Contato</h2>
-    <p>Email: contato@neoncore.com</p>
-  </section>
+    <section id="contato">
+      <h2>9. Contato</h2>
+      <p>Para dúvidas ou sugestões, envie uma mensagem para o criador do NeonCore RPG.</p>
+    </section>
+  </div>
 
+  <script>
+    function showTab(index) {
+      const tabs = document.querySelectorAll('.tab-btn');
+      const contents = document.querySelectorAll('.tab-content');
+      tabs.forEach(btn => btn.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      tabs[index].classList.add('active');
+      contents[index].classList.add('active');
+    }
+  </script>
 </body>
 </html>
