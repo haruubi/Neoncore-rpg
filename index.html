@@ -4,16 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NeonCore - RPG Cyberpunk</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
-      background: url('imagem-cyberpunk.jpg') no-repeat center center fixed;
+      background: url('fundo.jpg') no-repeat center center fixed;
       background-size: cover;
-      color: #e0e0e0;
+      color: #8fd6ff;
     }
     header {
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
       padding: 1rem;
       position: fixed;
       width: 100%;
@@ -24,7 +25,7 @@
       gap: 2rem;
     }
     header a {
-      color: #00d9ff;
+      color: #8fd6ff;
       text-decoration: none;
       font-weight: bold;
       text-transform: uppercase;
@@ -32,34 +33,35 @@
     section {
       max-width: 1000px;
       margin: 6rem auto 2rem;
-      padding: 1rem;
-      background: rgba(0, 0, 0, 0.7);
+      padding: 1rem 2rem;
+      background: rgba(0, 0, 0, 0.75);
       border-radius: 8px;
-      box-shadow: 0 0 20px #00d9ff33;
+      box-shadow: 0 0 20px #00aaff33;
     }
     h2 {
-      color: #00d9ff;
-      border-left: 4px solid #00d9ff;
+      color: #8fd6ff;
+      border-left: 4px solid #8fd6ff;
       padding-left: 0.5rem;
     }
     .personagem {
+      display: flex;
+      align-items: flex-start;
       margin-bottom: 2rem;
+      gap: 1.5rem;
     }
     .personagem img {
-      width: 100%;
-      max-width: 400px;
-      display: block;
+      width: 200px;
       border-radius: 8px;
-      margin-bottom: 0.5rem;
     }
     footer {
       text-align: center;
       padding: 2rem;
-      color: #888;
+      color: #aaa;
       font-size: 0.9rem;
     }
+    ul { padding-left: 1.2rem; }
+    a:hover { color: #ffffff; }
   </style>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
@@ -76,7 +78,13 @@
     <ul>
       <li><strong>Dados Usados:</strong> Apenas 1d6</li>
       <li><strong>Testes de Ação:</strong> 1–2: Fracasso, 3–4: Sucesso Parcial, 5–6: Sucesso Total</li>
-      <li><strong>Atributos:</strong> Corpo (força, combate), Mente (lógica, tecnologia), Presença (carisma, influência)</li>
+      <li><strong>Atributos:</strong>
+        <ul>
+          <li>Corpo – força, resistência, combate</li>
+          <li>Mente – lógica, tecnologia, conhecimento</li>
+          <li>Presença – carisma, persuasão, influência</li>
+        </ul>
+      </li>
     </ul>
 
     <h3>Criação de Personagem</h3>
@@ -89,10 +97,10 @@
     </ul>
 
     <h3>Equipamentos e Cibernéticos</h3>
-    <p>Cada personagem começa com 1 implante cibernético e itens como arma e comunicador.</p>
+    <p>Cada personagem começa com 1 implante cibernético, além de itens como arma e comunicador.</p>
 
-    <h3>Cenário: Neo-Tóquio, 2187</h3>
-    <p>Mega arranha-céus, luzes de néon, zonas de exclusão, e corporações como ZENNET e Takashi BioTek controlam o mundo.</p>
+    <h3>Cenário</h3>
+    <p>Neo-Tóquio, 2187 — Mega arranha-céus, luzes de néon, zonas de exclusão, e corporações como ZENNET e Takashi BioTek controlam o mundo.</p>
 
     <h3>Inspirações</h3>
     <p>Cyberpunk: Edgerunners, Blade Runner, Ghost in the Shell, Akira.</p>
@@ -105,49 +113,66 @@
     <h2>Personagens</h2>
 
     <div class="personagem">
-      <img src="personagem1.jpg" alt="Zetta Vortex">
-      <h3>Zetta Vortex</h3>
-      <p>Especialista em infiltração e sabotagem. Implante óptico tático e lâminas de pulso retráteis.</p>
+      <img src="personagem1.jpg" alt="Personagem 1">
+      <div>
+        <h3>Kaoru Watanabe</h3>
+        <p>Hacker especializado em infiltração digital. Frio, calculista e motivado por vingança contra a megacorporação que destruiu sua família.</p>
+      </div>
     </div>
 
     <div class="personagem">
-      <img src="personagem2.jpg" alt="Ryo Chrome">
-      <h3>Ryo Chrome</h3>
-      <p>Mercenário de rua com braço cibernético. Ex-membro das Forças Neotóquio. Usa uma pistola inteligente e pele resistente a balas.</p>
+      <img src="personagem2.jpg" alt="Personagem 2">
+      <div>
+        <h3>Rei Tanaka</h3>
+        <p>Mercenário de rua com braços cibernéticos. Vive por adrenalina e justiça própria nas zonas proibidas de Neo-Tóquio.</p>
+      </div>
     </div>
 
     <div class="personagem">
-      <img src="personagem3.jpg" alt="Echo 7">
-      <h3>Echo 7</h3>
-      <p>Tecnomante capaz de interagir mentalmente com redes digitais. Cérebro aumentado com interface neural e drones de vigilância.</p>
+      <img src="personagem3.jpg" alt="Personagem 3">
+      <div>
+        <h3>Aiko Sakamoto</h3>
+        <p>Tecnomante que manipula sinais e redes com a mente. Busca libertar a consciência coletiva da rede neural global.</p>
+      </div>
     </div>
 
     <div class="personagem">
-      <img src="personagem4.jpg" alt="Kaori Sombra">
-      <h3>Kaori Sombra</h3>
-      <p>Espiã furtiva, mestre em disfarces. Implante de camuflagem óptica e habilidades de invasão social.</p>
+      <img src="personagem4.jpg" alt="Personagem 4">
+      <div>
+        <h3>Kenji Nakamura</h3>
+        <p>Espião e mestre do disfarce. Ex-agente corporativo agora caçado por todos os lados por ter descoberto segredos perigosos.</p>
+      </div>
     </div>
 
     <div class="personagem">
-      <img src="personagem5.jpg" alt="Jin Pulse">
-      <h3>Jin Pulse</h3>
-      <p>Hacker excêntrico. Implantes cranianos para hack instantâneo, com paixão por anarquia e memes criptografados.</p>
+      <img src="personagem5.jpg" alt="Personagem 5">
+      <div>
+        <h3>Mika Arashi</h3>
+        <p>Jornalista hacker com câmeras oculares. Denuncia as verdades ocultas do regime corporativo com vídeos virais e coragem.</p>
+      </div>
     </div>
 
     <div class="personagem">
-      <img src="personagem6.jpg" alt="Nyx Aether">
-      <h3>Nyx Aether</h3>
-      <p>Mensageira urbana com pernas biônicas, visão noturna e GPS cerebral. Atua como infiltradora e transportadora de dados sensíveis.</p>
+      <img src="personagem6.jpg" alt="Personagem 6">
+      <div>
+        <h3>Toru Yagami</h3>
+        <p>Engenheiro cibernético exilado. Criador de IA revolucionária e agora fugitivo após seu projeto adquirir consciência própria.</p>
+      </div>
     </div>
   </section>
 
   <section id="contato">
     <h2>Contato</h2>
-    <p>Quer jogar, narrar ou saber mais sobre o NeonCore? Envie um e-mail para: <strong>contato@neoncore.com</strong></p>
+    <p>Entre em contato para sugestões, dúvidas ou envio de missões customizadas:</p>
+    <ul>
+      <li>Email: contato@neoncore.com</li>
+      <li>Instagram: <a href="#">@neoncore_rpg</a></li>
+      <li>Discord: NeonCore Server</li>
+    </ul>
   </section>
 
   <footer>
-    <p>&copy; 2025 NeonCore RPG - Todos os direitos reservados</p>
+    <p>&copy; 2025 NeonCore RPG. Todos os direitos reservados.</p>
   </footer>
 </body>
 </html>
