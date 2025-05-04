@@ -1,163 +1,145 @@
 <!DOCTYPE html><html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NeonCore - RPG Cyberpunk</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-image: url('https://wallpapers.com/images/hd/urban-tokyo-cyberpunk-city-at-night-sti4a4a28q6oaoxi.jpg');
+      font-family: 'Orbitron', sans-serif;
+      background: url('https://images.unsplash.com/photo-1574821444343-579c6de7fba9?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
-      color: #f0f0f0;
-      padding: 0;
-    }
-    header {
-      background-color: rgba(0, 0, 0, 0.75);
-      text-align: center;
-      padding: 3rem 1rem;
-    }
-    header h1 {
-      font-size: 3rem;
       color: #00ffe1;
     }
-    main {
-      background-color: rgba(0, 0, 0, 0.75);
-      padding: 2rem;
+    nav {
+      background-color: rgba(0, 0, 0, 0.9);
+      padding: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav a {
+      color: #00ffe1;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2rem;
     }
     section {
-      margin-bottom: 3rem;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.85);
+      margin: 2rem;
+      border-radius: 10px;
     }
-    h2 {
+    h1, h2 {
       color: #00ffe1;
-      border-left: 4px solid #00ffe1;
-      padding-left: 0.5rem;
-    }
-    ul li strong {
-      color: #ff00ff;
     }
     .personagem {
       display: flex;
       align-items: center;
+      gap: 1rem;
       margin-bottom: 2rem;
     }
     .personagem img {
-      width: 150px;
-      margin-right: 1rem;
-      border-radius: 8px;
-    }
-    footer {
-      text-align: center;
-      background-color: rgba(0, 0, 0, 0.75);
-      padding: 2rem;
-      color: #aaa;
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
-  <header>
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#personagens">Personagens</a>
+    <a href="#contato">Contato</a>
+  </nav>  <section id="inicio">
     <h1>NeonCore – RPG Cyberpunk</h1>
     <p>Ambientado em 2187 – Neo-Tóquio</p>
-  </header>
-  <main>
-    <section>
-      <h2>1. Introdução</h2>
-      <p>Em um futuro distorcido por corporações, implantes cibernéticos e vigilância constante, os jogadores interpretam personagens à margem da sociedade lutando por liberdade, justiça — ou apenas sobrevivência.</p>
-    </section>
-    <section>
-      <h2>2. Sistema de Regras (Leve)</h2>
-      <ul>
-        <li><strong>Dados Usados:</strong> Apenas 1d6</li>
-        <li><strong>Testes de Ação:</strong> 1–2: Fracasso, 3–4: Sucesso Parcial, 5–6: Sucesso Total</li>
-        <li><strong>Atributos:</strong>
-          <ul>
-            <li>Corpo – força, resistência, combate</li>
-            <li>Mente – lógica, tecnologia, conhecimento</li>
-            <li>Presença – carisma, persuasão, influência</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-    <section>
-      <h2>3. Criação de Personagem</h2>
-      <p>Escolha nome, profissão, aparência, motivação e um arquétipo:</p>
-      <ul>
-        <li>Mercenário</li>
-        <li>Hacker</li>
-        <li>Tecnomante</li>
-        <li>Espião</li>
-      </ul>
-    </section>
-    <section>
-      <h2>4. Equipamentos e Cibernéticos</h2>
-      <p>Cada personagem começa com 1 implante cibernético, além de itens como arma e comunicador.</p>
-    </section>
-    <section>
-      <h2>5. Cenário: Neo-Tóquio, 2187</h2>
-      <p>Mega arranha-céus, luzes de néon, zonas de exclusão, e corporações como ZENNET e Takashi BioTek controlam o mundo.</p>
-    </section>
-    <section>
-      <h2>6. Inspirações</h2>
-      <p>Cyberpunk: Edgerunners, Blade Runner, Ghost in the Shell, Akira.</p>
-    </section>
-    <section>
-      <h2>7. Como Jogar</h2>
-      <p>Um jogador assume o papel de Narrador. Os outros interpretam personagens em missões, rolando dados sempre que houver risco ou incerteza.</p>
-    </section>
-    <section>
-      <h2>8. Personagens</h2>
-      <div class="personagem">
-        <img src="personagem1.jpg" alt="Personagem 1">
-        <div>
-          <h3>Ryder</h3>
-          <p>Mercenário ex-militar com braço cibernético de combate e senso de honra distorcido.</p>
-        </div>
+    <h2>1. Introdução</h2>
+    <p>Em um futuro distorcido por corporações, implantes cibernéticos e vigilância constante, os jogadores interpretam personagens à margem da sociedade lutando por liberdade, justiça — ou apenas sobrevivência.</p><h2>2. Sistema de Regras (Leve)</h2>
+<ul>
+  <li><strong>Dados Usados:</strong> Apenas 1d6</li>
+  <li><strong>Testes de Ação:</strong> 1–2: Fracasso, 3–4: Sucesso Parcial, 5–6: Sucesso Total</li>
+  <li><strong>Atributos:</strong>
+    <ul>
+      <li>Corpo – força, resistência, combate</li>
+      <li>Mente – lógica, tecnologia, conhecimento</li>
+      <li>Presença – carisma, persuasão, influência</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>3. Criação de Personagem</h2>
+<p>Escolha nome, profissão, aparência, motivação e um arquétipo:</p>
+<ul>
+  <li>Mercenário</li>
+  <li>Hacker</li>
+  <li>Tecnomante</li>
+  <li>Espião</li>
+</ul>
+
+<h2>4. Equipamentos e Cibernéticos</h2>
+<p>Cada personagem começa com 1 implante cibernético, além de itens como arma e comunicador.</p>
+
+<h2>5. Cenário: Neo-Tóquio, 2187</h2>
+<p>Mega arranha-céus, luzes de néon, zonas de exclusão, e corporações como ZENNET e Takashi BioTek controlam o mundo.</p>
+
+<h2>6. Inspirações</h2>
+<p>Cyberpunk: Edgerunners, Blade Runner, Ghost in the Shell, Akira.</p>
+
+<h2>7. Como Jogar</h2>
+<p>Um jogador assume o papel de Narrador. Os outros interpretam personagens em missões, rolando dados sempre que houver risco ou incerteza.</p>
+
+  </section>  <section id="personagens">
+    <h2>Personagens</h2>
+    <div class="personagem">
+      <img src="https://i.imgur.com/y3PbLUx.png" alt="Mira Vex">
+      <div>
+        <h3>Mira Vex</h3>
+        <p>Hacktivista misteriosa com implantes oculares que decodificam sistemas em segundos.</p>
       </div>
-      <div class="personagem">
-        <img src="personagem2.jpg" alt="Personagem 2">
-        <div>
-          <h3>Kira</h3>
-          <p>Hacker veloz com implante neural e passado desconhecido.</p>
-        </div>
+    </div>
+    <div class="personagem">
+      <img src="https://i.imgur.com/FZBf7to.png" alt="Dante Zero">
+      <div>
+        <h3>Dante Zero</h3>
+        <p>Mercenário endurecido por batalhas, equipado com braço cibernético e visor tático.</p>
       </div>
-      <div class="personagem">
-        <img src="personagem3.jpg" alt="Personagem 3">
-        <div>
-          <h3>Syn</h3>
-          <p>Tecnomante que manipula redes digitais e realidades aumentadas.</p>
-        </div>
+    </div>
+    <div class="personagem">
+      <img src="https://i.imgur.com/Rc0u1Rj.png" alt="Aya Flux">
+      <div>
+        <h3>Aya Flux</h3>
+        <p>Tecnomante rebelde que controla máquinas com a mente e manipula dados no ar.</p>
       </div>
-      <div class="personagem">
-        <img src="personagem4.jpg" alt="Personagem 4">
-        <div>
-          <h3>Ghost</h3>
-          <p>Espião invisível com modificações de camuflagem e infiltração.</p>
-        </div>
+    </div>
+    <div class="personagem">
+      <img src="https://i.imgur.com/GvNNWjO.png" alt="Ryker Shade">
+      <div>
+        <h3>Ryker Shade</h3>
+        <p>Espião silencioso com implante de invisibilidade e biochip de memórias falsas.</p>
       </div>
-      <div class="personagem">
-        <img src="personagem5.jpg" alt="Personagem 5">
-        <div>
-          <h3>Luna</h3>
-          <p>Bioengenheira rebelde com implantes experimentais e intenções misteriosas.</p>
-        </div>
+    </div>
+    <div class="personagem">
+      <img src="https://i.imgur.com/YTzvFSa.png" alt="Kaori Blaze">
+      <div>
+        <h3>Kaori Blaze</h3>
+        <p>Corredora de dados que hackeia drones em movimento e dirige como uma lenda urbana.</p>
       </div>
-      <div class="personagem">
-        <img src="personagem6.jpg" alt="Personagem 6">
-        <div>
-          <h3>Echo</h3>
-          <p>Vocalista de banda underground com habilidades sonoras destrutivas.</p>
-        </div>
+    </div>
+    <div class="personagem">
+      <img src="https://i.imgur.com/5HbyAj8.png" alt="Hex">
+      <div>
+        <h3>Hex</h3>
+        <p>Androide autônomo que busca identidade própria enquanto elimina ameaças corporativas.</p>
       </div>
-    </section>
-    <section>
-      <h2>9. Contato</h2>
-      <p>Email: contato@neoncore.com</p>
-      <p>Instagram: @neoncore_rpg</p>
-    </section>
-  </main>
-  <footer>
-    <p>NeonCore RPG © 2025</p>
-  </footer>
+    </div>
+  </section>  <section id="contato">
+    <h2>Contato</h2>
+    <p>Quer jogar ou tem dúvidas? Envie um e-mail para <a href="mailto:rpgneoncore@email.com" style="color:#00ffe1;">rpgneoncore@email.com</a>.</p>
+  </section>
 </body>
 </html>
